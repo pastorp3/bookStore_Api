@@ -8,6 +8,13 @@ class Api::V1::BooksController < ApplicationController
     render json: BookRepresenter.new(@books).books_json, status: :ok
   end
 
+  def user_books
+    @user = User.find_by(id: params[:id])
+    @books = @user.get_user_books
+
+    render json: BookRepresenter.new(@books).books_json, status: :ok
+  end
+
   # GET /books/1
   def show
     render json: BookRepresenter.new(@book).as_json, status: :ok

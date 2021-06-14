@@ -15,4 +15,8 @@ class User < ApplicationRecord
     @password = Password.create(new_password)
     self.password_hash = @password
   end
+
+  def get_user_books
+    self.books
+  end
 end
