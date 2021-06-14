@@ -1,4 +1,4 @@
-class BookRepresenter < BooksController
+class BookRepresenter < Api::V1::BooksController
   def initialize(book)
     @book = book
   end

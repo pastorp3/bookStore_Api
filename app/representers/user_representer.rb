@@ -1,4 +1,4 @@
-class UserRepresenter < UsersController
+class UserRepresenter < Api::V1::UsersController
   def initialize(user)
     @user = user
   end
