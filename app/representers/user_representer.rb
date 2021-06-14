@@ -10,6 +10,7 @@ class UserRepresenter < Api::V1::UsersController
       email: user.email,
       fName: user.fName,
       lName: user.lName,
+      token: user.token
     }
   end
 

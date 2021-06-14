@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  validates :username, :email, :password_hash, :fName, :lName, presence: true
+  validates :username, :email,:token, :password_hash, :fName, :lName, presence: true
   validates :username, :email, uniqueness: true
+  validates_format_of :email, with: /@/
 
   has_many :books
 
