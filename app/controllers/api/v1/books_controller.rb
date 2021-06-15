@@ -1,5 +1,6 @@
 class Api::V1::BooksController < ApplicationController
   before_action :set_book, only: [:show, :update, :destroy]
+  before_action :authorized, only: [:user_books, :create, :update, :destroy]
 
   # GET /books
   def index
@@ -8,6 +9,7 @@ class Api::V1::BooksController < ApplicationController
     render json: BookRepresenter.new(@books).books_json, status: :ok
   end
 
+  # GET /books/user/:id
   def user_books
     @user = User.find_by(id: params[:id])
     @books = @user.get_user_books
